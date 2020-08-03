@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd /root/src \
+&& wget -O 'xdebug-2.9.2.tgz' https://xdebug.org/files/xdebug-2.9.2.tgz \
+&& tar -xzf xdebug-2.9.2.tgz \
+&& cd xdebug-2.9.2 \
+&& /usr/local/php/bin/phpize \
+&& ./configure \
+	--enable-xdebug \
+	--with-php-config=/usr/local/php/bin/php-config \
+&& make \
+&& make install \
+
+exit 0;

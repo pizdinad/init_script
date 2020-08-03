@@ -1,0 +1,53 @@
+#!/bin/bash
+
+cd /root/src \
+&& wget -O 'tidyp-1.04.tar.gz' https://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz \
+&& tar zxvf tidyp-1.04.tar.gz \
+&& cd tidyp-1.04 \
+&& ./configure --prefix=/usr/local/tidyp \
+&& make \
+&& make install \
+&& cd /root/src \
+&& wget https://curl.haxx.se/download/curl-7.59.0.tar.gz \
+&& tar zxvf curl-7.59.0.tar.gz \
+&& cd curl-7.59.0 \
+&& ./configure --prefix=/usr/local/curl \
+&& make \
+&& make install \
+&& apt-get --yes install libedit-dev \
+&& cd /root/src \
+&& wget -O 'php-7.3.11.tar.gz' https://www.php.net/distributions/php-7.3.11.tar.gz \
+&& tar zxvf php-7.3.11.tar.gz \
+&& cd php-7.3.11 \
+&& ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
+&& ./configure \
+	CFLAGS='-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64' \
+	--prefix=/usr/local/php \
+	--with-apxs2=/usr/local/apache2/bin/apxs \
+	--with-config-file-path=/usr/local/php/etc \
+	--with-config-file-scan-dir=/usr/local/php/etc/extra \
+	--with-gd \
+	--with-jpeg-dir \
+	--with-freetype-dir \
+	--enable-intl \
+	--with-openssl \
+	--enable-exif \
+	--enable-mbstring \
+	--with-ldap \
+	--with-ldap-sasl \
+	--with-pear \
+	--enable-sockets \
+	--with-pdo-mysql \
+	--with-tidy=/usr/local/tidyp \
+	--enable-zip \
+	--enable-bcmath \
+	--with-gettext \
+	--with-zlib \
+	--with-curl=/usr/local/curl \
+	--enable-soap \
+	--with-libedit \
+&& make \
+&& make install \
+&& mv /usr/local/apache2/modules/libphp7.so /usr/local/apache2/modules/libphp-7.3.11.so \
+
+exit 0;

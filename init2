@@ -1,0 +1,37 @@
+#!/bin/bash
+
+apt-get --yes install \
+wget \
+curl \
+libtool \
+autoconf \
+make \
+cmake \
+libapr1-dev \
+libaprutil1-dev \
+libpcre3-dev \
+gcc \
+ntpdate \
+perl \
+zlib1g-dev \
+libnghttp2-dev \
+libssl-dev \
+libxml2-dev \
+libbison-dev \
+re2c \
+libaio1 \
+libnuma-dev \
+libncurses5-dev \
+pkg-config \
+libpng-dev \
+libfreetype6-dev \
+libldap-2.4-2 libldap2-dev libsasl2-dev \
+libbz2-dev libzip-dev \
+libjpeg-dev \
+sendmail \
+libcurl4-gnutls-dev \
+libexpat1-dev \
+gettext \
+libz-dev \
+
+exit 0;
