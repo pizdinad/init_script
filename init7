@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cd /root/src \
 && wget -O 'xdebug-2.9.2.tgz' https://xdebug.org/files/xdebug-2.9.2.tgz \
 && tar -xzf xdebug-2.9.2.tgz \

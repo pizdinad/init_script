@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cd /root/src \
 && wget -O 'tidyp-1.04.tar.gz' https://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz \
 && tar zxvf tidyp-1.04.tar.gz \

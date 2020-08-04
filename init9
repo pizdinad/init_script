@@ -1,0 +1,6 @@
+#!/bin/bash
+find /usr/local/apache2/conf /usr/local/mysql/etc -iname 'README.md' -o -iname '.git' -o -iname '.gitignore' | xargs rm -r -f \
+&& cd /root/src/ \
+&& find . ! -iname 'init[0-9]' -a ! -iname 'config.nice' -a ! -iname 'php.ini-development' -a ! -iname 'php.ini-production' -delete \
+
+exit 0;

@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cd /root/src \
 && wget https://archive.apache.org/dist/httpd/httpd-2.4.29.tar.gz \
 && tar zxvf httpd-2.4.29.tar.gz \

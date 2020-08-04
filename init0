@@ -1,8 +1,6 @@
 #!/bin/bash
-
 apt-get update \
 && apt-get --yes upgrade \
 && apt-get --yes install \
 mc \
-
-exit 0;
+&& reboot
