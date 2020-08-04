@@ -45,11 +45,11 @@ https://help.ubuntu.ru/wiki/screen
 	* \# free -h   - memory allocation  
 	* \# mcedit /etc/fstab   - добавляем запись без кавычек "**/swapfile none swap sw 0 0**" в файл /etc/fstab (Для автоматического подключения) **(в конце должны быть пустая строка!!!)**
 2. зависимости для всех сервисов (apache, php, mysql, ...)
-3. mysql.server , конфигурационный файл my.cnf ; назначаем пароль для 'root'@'localhost' (mysql) ;;  
+3. mysql.server , конфигурационный файл my.cnf https://github.com/pizdinad/mysql-etc ; назначаем пароль для 'root'@'localhost' (mysql) ;;  
 (или клонируем директорию data)  
 (или клонируем весь mysql/ со старого сервера)  
 (**важно** перетащить юзеров, разрешения, и тд. ; **возможно позже с дампом**) 
-4. apache2 , конфигурационные файлы  
+4. apache2 , конфигурационные файлы https://github.com/pizdinad/apache2-conf  
 5. **зависимости:**  
 tidyp - https://www.php.net/manual/ru/book.tidy.php  
 curl - https://www.php.net/manual/ru/book.curl.php  
@@ -73,7 +73,7 @@ https://www.php.net/manual/ru/install.pecl.phpize.php
 0. Синхронизируем конфигурационные файлы (Sublime Text):  
 sync remote->local
 1. setting, sites for apache2  
-читаем /usr/local/apache2/conf/README.md  
+читаем /usr/local/apache2/conf/README.md https://github.com/pizdinad/apache2-conf#apache2-conf  
 **fed@mac $ rsync -zaHviP --executability /local/path/htdocs/ Host:/usr/local/apache2/htdocs/** 
 2. загрузить сертификаты для сайтов /usr/local/apache2/ssl.crt/NAME_SITE
 3. setting for php  
