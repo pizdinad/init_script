@@ -43,7 +43,8 @@ https://help.ubuntu.ru/wiki/screen
 1. **УВЕЛИЧЕНИЕ RAM - СОЗДАЕМ SWAP FILE** размером в 1ГБ  
 	* \# swapon --show   - проверить текущий статус  
 	* \# free -h   - memory allocation  
-	* \# mcedit /etc/fstab   - добавляем запись без кавычек "**/swapfile none swap sw 0 0**" в файл /etc/fstab (Для автоматического подключения) **(в конце должны быть пустая строка!!!)**
+	* \# mcedit /etc/fstab   - добавляем запись без кавычек "**/swapfile none swap sw 0 0**" в файл /etc/fstab (Для автоматического подключения) **(в конце должны быть пустая строка!!!)**  
+**\# reboot**  
 2. зависимости для всех сервисов (apache, php, mysql, ...)
 3. mysql.server , конфигурационный файл my.cnf https://github.com/pizdinad/mysql-etc ; назначаем пароль для 'root'@'localhost' (mysql) ;;  
 (или клонируем директорию data)  

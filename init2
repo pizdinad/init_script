@@ -32,5 +32,4 @@ libcurl4-gnutls-dev \
 libexpat1-dev \
 gettext \
 libz-dev \
-
-exit 0;
+&& reboot
