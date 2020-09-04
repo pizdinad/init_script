@@ -83,7 +83,8 @@ https://www.php.net/manual/ru/install.pecl.phpize.php
 
 
 ## После запуска всех init_script :
-0. Синхронизируем - sync remote->local (Sublime Text):  
+0. Синхронизируем  
+(sync remote->local (Sublime Text); git clone to local machine;)  
 	* **/root/src/**  
 	* **конфигурационные файлы (browse remote...):**  
 	/root/usr/local/apache2/conf/  
