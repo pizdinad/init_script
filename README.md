@@ -40,11 +40,24 @@ https://help.ubuntu.ru/wiki/screen
 ## Описание init_script по номерам :
 0. обновление системы и установка самого необходимого минимального ПО  
 **(часто требуется интерактивное подтверждение-выбор)**  
-1. **УВЕЛИЧЕНИЕ RAM - СОЗДАЕМ SWAP FILE** размером в 1ГБ  
-	* \# swapon --show   - проверить текущий статус  
+1. **УВЕЛИЧЕНИЕ RAM - СОЗДАЕМ SWAP FILE/PART** размером в 1ГБ  
+	**tips:**  
+	* **UUID** генерируется при создании файловой системы, файла/раздела подкачки;    
+	**пример:**  
+	командой \# mkswap /swapfile в данном скрипте  
+	no label, **UUID=d8bbf2c8-ee62-4e3c-b230-2bb99d22e5c0**  	
+	* \# swapon --show   - проверить текущий статус подкачки  
 	* \# free -h   - memory allocation  
-	* \# mcedit /etc/fstab   - добавляем запись без кавычек "**/swapfile none swap sw 0 0**" в файл /etc/fstab (Для автоматического подключения) **(в конце должны быть пустая строка!!!)**  
-**\# reboot**  
+	* \# blkid /swapfile   - print block device attributes (TYPE , **UUID**)  
+
+	**require:**	
+	* \# mcedit /etc/fstab   - добавляем запись (для автоматического монтирования):  
+	// используем **UUID** или **/path** в зависимости раздел/файл  
+	**/swapfile none swap sw 0 0**  
+	or  
+	**UUID="d8bbf2c8-ee62-4e3c-b230-2bb99d22e5c0" none swap sw 0 0**  
+	**(в конце файла должна быть пустая строка!!!)**  
+	* **\# reboot**  
 2. зависимости для всех сервисов (apache, php, mysql, ...)
 3. mysql.server , конфигурационный файл my.cnf https://github.com/pizdinad/mysql-etc ; назначаем пароль для 'root'@'localhost' (mysql) ;;  
 (или клонируем директорию data)  
@@ -58,7 +71,6 @@ curl - https://www.php.net/manual/ru/book.curl.php
 **php ./configure:**  
 CFLAGS='-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'   - https://www.php.net/manual/ru/intro.filesystem.php
 6. composer (пакетный менеджер, например используется в zend framework) https://getcomposer.org/download/  
-заходим на сайт, **меняем sha384** в скрипте 
 7. xdebug  
 https://xdebug.org/docs/install - **(см.ОБЯЗАТЕЛЬНО)**  
 https://www.php.net/manual/ru/install.pecl.phpize.php 
@@ -71,9 +83,18 @@ https://www.php.net/manual/ru/install.pecl.phpize.php
 
 
 ## После запуска всех init_script :
-0. Синхронизируем конфигурационные файлы (Sublime Text):  
-sync remote->local
-1. setting, sites for apache2  
+0. Синхронизируем - sync remote->local (Sublime Text):  
+	* **/root/src/**  
+	* **конфигурационные файлы (browse remote...):**  
+	/root/usr/local/apache2/conf/  
+	/root/usr/local/apache2/htdocs/  
+	===============================    
+	/root/usr/local/mysql/etc  
+	===============================  
+	/root/usr/local/php/etc
+1. setting, sites for apache2:  
+\# TZ='Europe/Moscow' last --time-format iso -i  - show a listing of last logged in users  
+**firewall, iptables;**  
 читаем /usr/local/apache2/conf/README.md https://github.com/pizdinad/apache2-conf#apache2-conf  
 **fed@mac $ rsync -zaHviP --executability /local/path/htdocs/ Host:/usr/local/apache2/htdocs/** 
 2. загрузить сертификаты для сайтов /usr/local/apache2/ssl.crt/NAME_SITE
