@@ -28,13 +28,7 @@ https://help.ubuntu.ru/wiki/screen
 
 
 ## Текущие версии :
-1. mysql-server v.5.7
-2. boost v.1_59_0 (for mysql)
-3. httpd v.2.4.29
-4. mod_fcgid-2.3.9 (for apache2)
-5. curl-7.59.0 (for php)
-6. php-7.3.11
-7. composer v1.8.5 (пакетный менеджер, например используется в zend framework)
+see scripts...
 
 
 ## Описание init_script по номерам :
