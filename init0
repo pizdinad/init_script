@@ -1,6 +1,6 @@
 #!/bin/bash
-apt-get update \
-&& apt-get --yes upgrade \
-&& apt-get --yes install \
+apt update \
+&& apt --yes upgrade \
+&& apt --yes install \
 mc \
 && reboot

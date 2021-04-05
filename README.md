@@ -57,7 +57,7 @@ https://help.ubuntu.ru/wiki/screen
 	or  
 	**UUID="d8bbf2c8-ee62-4e3c-b230-2bb99d22e5c0" none swap sw 0 0**  
 	**(в конце файла должна быть пустая строка!!!)**  
-	* **\# reboot**  
+	* **\# reboot** or **$ sudo reboot**  
 2. зависимости для всех сервисов (apache, php, mysql, ...)
 3. mysql.server , конфигурационный файл my.cnf https://github.com/pizdinad/mysql-etc ; назначаем пароль для 'root'@'localhost' (mysql) ;;  
 (или клонируем директорию data)  
@@ -77,9 +77,15 @@ https://www.php.net/manual/ru/install.pecl.phpize.php
 8. установка путей исполняемых файлов в переменную **$PATH** системы  
 \# printenv   - проверка существующих переменных
 9. удаляем:  
+\# df -h (для примера)  
+/dev/sda1         15G   11G  3.6G  76% /  
+--  
+files:  
 /root/src/*  
 .git/  
-.gitignore
+.gitignore  
+after:  
+/dev/sda1         15G  4.5G   11G  31% /
 
 
 ## После запуска всех init_script :

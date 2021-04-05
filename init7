@@ -1,8 +1,8 @@
 #!/bin/bash
 cd /root/src \
-&& wget -O 'xdebug-2.9.2.tgz' https://xdebug.org/files/xdebug-2.9.2.tgz \
-&& tar -xzf xdebug-2.9.2.tgz \
-&& cd xdebug-2.9.2 \
+&& wget -O 'xdebug-2.7.2.tgz' https://pecl.php.net/get/xdebug-2.7.2.tgz \
+&& tar -xzf xdebug-2.7.2.tgz \
+&& cd xdebug-2.7.2 \
 && /usr/local/php/bin/phpize \
 && ./configure \
 	--enable-xdebug \
